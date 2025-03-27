@@ -1,0 +1,126 @@
+/* General Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #000;
+  background-image: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/96fb4c30-59e1-4e13-ab5d-1d96c8fda87e.jfif-SzYeScKaSSQAvJ4nqX9GfeejIPg8lj.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-y: auto;
+  color: #fff;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 255, 157, 0.2);
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+  position: relative;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+h1 {
+  font-size: 36px;
+  color: #00ff9d;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0, 255, 157, 0.3);
+}
+
+p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+}
+
+/* Button Styles */
+.btn-register {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #000;
+  background: linear-gradient(135deg, #00ff9d, #00b377);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 255, 157, 0.3);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.btn-register:hover {
+  background: linear-gradient(135deg, #00b377, #008055);
+  box-shadow: 0 6px 20px rgba(0, 255, 157, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+      padding: 30px 20px;
+  }
+
+  h1 {
+      font-size: 30px;
+  }
+
+  p {
+      font-size: 16px;
+  }
+
+  .btn-register {
+      padding: 12px 24px;
+      font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+      font-size: 26px;
+  }
+
+  p {
+      font-size: 14px;
+  }
+
+  .btn-register {
+      padding: 10px 20px;
+      font-size: 14px;
+  }
+}

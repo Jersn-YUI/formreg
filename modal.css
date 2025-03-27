@@ -1,0 +1,101 @@
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    width: 90%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.2); /* Glass effect */
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+  
+  /* When modal is active */
+  .modal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  /* Modal Header */
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .modal-header h2 {
+    font-size: 22px;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  /* Close Button */
+  .modal-close {
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #fff;
+    transition: transform 0.2s ease;
+  }
+  
+  .modal-close:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Modal Body */
+  .modal-body {
+    padding: 20px 0;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Modal Footer */
+  .modal-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .modal-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .modal-btn.primary {
+    background: linear-gradient(135deg, #d4af37, #ffd700);
+    color: #000;
+  }
+  
+  .modal-btn.primary:hover {
+    background: linear-gradient(135deg, #ffd700, #d4af37);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+  }
+  
+  .modal-btn.secondary {
+    background: rgba(30, 30, 30, 0.9);
+    color: #fff;
+  }
+  
+  .modal-btn.secondary:hover {
+    background: black;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechnoCON 2025 - Attendance Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Modal styles matching the form */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            font-family: 'Poppins', sans-serif;
+        }
+    
+        .modal {
+            background: #c5c5c5;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 1px solid #000000;
+        }
+    
+        .modal h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+    
+        .modal p {
+            color: #5a6a7f;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+    
+        #closeModal {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0.8rem 2.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(41, 128, 185, 0.2);
+        }
+    
+        #closeModal:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(41, 128, 185, 0.3);
+        }
+    
+        #closeModal:active {
+            transform: translateY(0);
+        }
+    
+        /* Success icon */
+        .success-icon {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background: #2ecc71;
+            color: white;
+            border-radius: 50%;
+            font-size: 3rem;
+            line-height: 80px;
+            margin-bottom: 1.5rem;
+            animation: bounceIn 0.6s ease-out;
+        }
+    
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+    
+    <!-- Success Modal -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal">
+            <div class="success-icon">✓</div>
+            <h2>Registration Complete!</h2>
+            <p>Thank you for registering for TechnoCON 2025. We've received your information and look forward to seeing you at the event.</p>
+            <button id="closeModal">Return to Home</button>
+        </div>
+    </div>
+</head>
+<body>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal">
+            <h2>Registration Successful</h2>
+            <p>Thank you for registering for TechnoCON 2025!</p>
+            <button id="closeModal">OK</button>
+        </div>
+    </div>
+
+    <div class="container form-screen">
+        <form id="attendanceForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Contact Number:</label>
+                <input type="tel" id="contact" name="contact" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="company">Company/Organization:</label>
+                <input type="text" id="company" name="company" placeholder="Enter your company or organization" required>
+            </div>
+
+            <div class="form-group interests-section">
+                <label class="interests-label">Select Your Areas of Interest:</label>
+                <div class="interests-grid">
+                    <div class="interest-item"><input type="checkbox" id="cctv" name="interests[]" value="CCTV"><label for="cctv">CCTV</label></div>
+                    <div class="interest-item"><input type="checkbox" id="FDAS(Fire Detection & Alarm system)" name="interests[]" value="FDAS"><label for="fdas">FDAS</label></div>
+                    <div class="interest-item"><input type="checkbox" id="automation" name="interests[]" value="AUTOMATION/BMS"><label for="automation">AUTOMATION/BMS</label></div>
+                    <div class="interest-item"><input type="checkbox" id="PABX" name="interests[]" value="PABX"><label for="PABX">PABX</label></div>
+                    <div class="interest-item"><input type="checkbox" id="LED WALL" name="interests[]" value="LED WALL"><label for="LED WALL">LED WALL</label></div>
+                    <div class="interest-item"><input type="checkbox" id="DIGITAL KIOSK" name="interests[]" value="DIGITAL KIOSK"><label for="DIGITAL KIOSK">DIGITAL KIOSK/BMS</label></div>
+                    <div class="interest-item"><input type="checkbox" id="PROJECTORS" name="interests[]" value="PROJECTORS"><label for="PROJECTORS">PROJECTORS</label></div>
+                    <div class="interest-item"><input type="checkbox" id="INTERACTIVE TV" name="interests[]" value="INTERACTIVE TV"><label for="INTERACTIVE TV">INTERACTIVE TV</label></div>
+                    <div class="interest-item"><input type="checkbox" id="BIOMETRICS" name="interests[]" value="BIOMETRICS"><label for="BIOMETRICS">BIOMETRICS</label></div>
+                    <div class="interest-item"><input type="checkbox" id="SMART LOCKS" name="interests[]" value="SMART LOCKS"><label for="SMART LOCKS">SMART LOCKS</label></div>
+                    <div class="interest-item"><input type="checkbox" id="CABLING" name="interests[]" value="CABLING"><label for="CABLING">CABLING</label></div>
+                    <div class="interest-item"><input type="checkbox" id="NETWORKS" name="interests[]" value="NETWORKS"><label for="NETWORKS">NETWORKS</label></div>
+                    <div class="interest-item"><input type="checkbox" id="LIVE STREAM" name="interests[]" value="LIVE STREAM"><label for="LIVE STREAM">LIVE STREAM</label></div>
+                    <div class="interest-item"><input type="checkbox" id="SPEAKERS/SOUND SYSTEM" name="interests[]" value="SPEAKERS/SOUND SYSTEM"><label for="SPEAKERS/SOUND SYSTEM">SPEAKERS/SOUND SYSTEM/BMS</label></div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">Register Now</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('attendanceForm');
+            const modal = document.getElementById('successModal');
+            const closeModal = document.getElementById('closeModal');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Collect form data
+                const formData = new FormData(form);
+                const data = {};
+                formData.forEach((value, key) => {
+                    if (key === 'interests[]') {
+                        if (!data.interests) data.interests = [];
+                        data.interests.push(value);
+                    } else {
+                        data[key] = value;
+                    }
+                });
+
+                if (data.interests) {
+                    data.interests = data.interests.join(', ');
+                }
+
+                // Send data to server
+                fetch('save_to_excel.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.json())
+                .then(responseData => {
+                    if (responseData.success) {
+                        // Show success modal
+                        modal.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+
+                        // Redirect after 2 seconds
+                        setTimeout(() => {
+                            window.location.href = 'index.html';
+                        }, 5000);
+                    } else {
+                        alert('Error saving data: ' + responseData.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while saving your data.');
+                });
+            });
+
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        });
+    </script>
+
+</body>
+</html>
